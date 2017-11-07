@@ -15,7 +15,7 @@ http.listen(3000 , function(){
 });
 
 io.on('connection' , function(socket){
-	console.log("A User is connected !");
+	console.log("Ammu/Appu is connected !");
 	
 	socket.on('appu messaged' , function(msg){
 		console.log("Message : "+msg);
