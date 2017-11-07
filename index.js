@@ -10,7 +10,7 @@ app.get('/' , function(req , res){
 });
 
 
-http.listen(3000 , function(){
+http.listen(process.env.PORT||3000 , function(){
 	console.log("Started WeOne server at port 3000");
 });
 
