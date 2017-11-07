@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<meta content="width=device-width" name="viewport" />
+	<head>
+		<title> Ammu Appu </title>
+		<link href='css/style.css' rel='stylesheet' />
+	</head>
+	<h1 class="heading"> Ammu Appu WeOne Application </h1>
+	
+	<div id='chat_area'>
+		<ul id='chat'>
+
+		</ul>
+		<form>
+		<input type='text' id='msg' autocomplete='off' placeholder='Enter message' />
+
+		<button id='send'> Send </button>
+		</form>
+	</div>
+	
+	<script src='js/socket.io.js'></script>
+	<script src='js/jquery.js'></script>
+	<script>
+		var socket = io();
+		
+		$("form").submit(function(){
+			socket.emit('appu messaged' , $("#msg").val());
+			$("#msg").val("");
+			return false;
+		});
+		
+		socket.on('ammu received' , function(msg){
+			$("#chat").append("<li>"+msg+"</li>");
+		});
+		
+	</script>
+</html>
